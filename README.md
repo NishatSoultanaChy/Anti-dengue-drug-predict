@@ -22,6 +22,6 @@ This repository contains the application module of our research paper "Machine L
 5. Replace the drive link below with the URL to the location of your dataset.
 
 
-# This github repository has the file "finalized model ET 150.pkl" uploaded to it. It must be downloaded to your disk/drive. 
+# This github repository has the file "finalized_model_ET_150.pkl" uploaded to it. It must be downloaded to your disk/drive. 
 1.   Download the "finalized_model_ET_150.pkl" file to your disk/drive.
 2.   Replace the URL in the DATA_PATH variable with the location where you placed the 'finalized_model_ET_150.pkl'

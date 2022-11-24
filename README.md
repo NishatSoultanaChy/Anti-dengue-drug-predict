@@ -27,4 +27,4 @@ This repository contains the application module of our research paper "Machine L
 2.   Replace the URL in the DATA_PATH variable with the location where you placed the 'finalized_model_ET_150.pkl'
 
 # Test Dataset:
-A test dataset is added named "Sample_Test_Dataset_FDA_approved_drugs.csv". You can use it to test our model.
+A test dataset is added named "Sample_Test_Dataset_FDA_approved_drugs.csv". You can use it to predict the pIC50(M) of the FDA approved drugs using our model.

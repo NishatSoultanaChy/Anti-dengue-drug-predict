@@ -18,21 +18,10 @@ import pickle
 import subprocess
 import sys
 
-#def install(package):
-#    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-    
-#install('padelpy')
+
 
 from padelpy import from_smiles
 
-######################
-# Custom function
-######################
-
-#def generate(smiles, verbose=False):
-
- #  descriptors = pd.DataFrame(from_smiles(smiles, threads = 1))
- #  return descriptors
 
 ######################
 # Page Title
@@ -57,14 +46,12 @@ This app predicts the **Bioactivity (pIC50)** values of molecules!
 st.header('User Input Features')
 
 ## Read SMILES input
-SMILES_input = "ccc"
+SMILES_input = "CCC"
 
 SMILES = st.text_area("SMILES input",  SMILES_input)
 
-#st.header('Input SMILES')
-S= SMILES.upper()
-
-S
+st.header('Input SMILES')
+SMILES
 
 ## Calculate molecular descriptors
 st.header('Computed molecular descriptors')
@@ -73,7 +60,7 @@ st.header('Computed molecular descriptors')
 #st.header('Descriptors')
 
 X = pd.DataFrame(from_smiles([SMILES], threads = 1))
-X
+
 
 #selecting input features
 X = X[["SpMax7_Bhi", "IC5", "nRotB", "SpMin8_Bhs", "SpAD_Dzv", "AATSC2e", "ATSC1v", "Kier2", "McGowan_Volume", "GATS1m", 
@@ -85,7 +72,7 @@ X = X[["SpMax7_Bhi", "IC5", "nRotB", "SpMin8_Bhs", "SpAD_Dzv", "AATSC2e", "ATSC1
 X.replace([np.inf, -np.inf], np.nan, inplace=True)
 X = X.astype("float64")
 X = pd.DataFrame(X).fillna(0)
-
+X
 
 ######################
 # Pre-built model

@@ -15,11 +15,6 @@ import streamlit as st
 
 import pickle
 #from PIL import Image
-import subprocess
-import sys
-
-
-
 from padelpy import from_smiles
 
 

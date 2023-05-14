@@ -18,10 +18,10 @@ import pickle
 import subprocess
 import sys
 
-def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+#def install(package):
+#    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
     
-install('padelpy')
+#install('padelpy')
 
 from padelpy import from_smiles
 
@@ -67,23 +67,24 @@ S= SMILES.upper()
 S
 
 ## Calculate molecular descriptors
-#st.header('Computed molecular descriptors')
-desc = from_smiles('CCC')
+st.header('Computed molecular descriptors')
+#desc = from_smiles('CCC')
 
 #st.header('Descriptors')
 
-desc
-#X = pd.DataFrame(from_smiles([SMILES], threads = 1))
+X = pd.DataFrame(from_smiles([SMILES], threads = 1))
+X
 
-#X = X[["SpMax7_Bhi", "IC5", "nRotB", "SpMin8_Bhs", "SpAD_Dzv", "AATSC2e", "ATSC1v", "Kier2", "McGowan_Volume", "GATS1m", 
-#              "SHBint3", "SpMAD_Dze", "AATS2v", "CIC5", "VE2_Dzp", "VP-1", "BCUTc-1l", "SpMax_Dzp", "SHBint10", "minHBint7",
-#          "AATSC2c", "AATS1i", "maxwHBa", "minHBd", "GATS2i", "ETA_Shape_Y", "SHBint7", "VR2_D", "VR1_Dt", "VR3_Dzp", 
-#            "XLogP", "GATS5i", "BCUTp-1l", "ETA_BetaP_s", "AATS8i", "C1SP2", "GATS8s", "ATSC2c", "AATS4i", "AATS2i", 
-#            "VR1_Dzp", "minHBint9"]]
+#selecting input features
+X = X[["SpMax7_Bhi", "IC5", "nRotB", "SpMin8_Bhs", "SpAD_Dzv", "AATSC2e", "ATSC1v", "Kier2", "McGowan_Volume", "GATS1m", 
+              "SHBint3", "SpMAD_Dze", "AATS2v", "CIC5", "VE2_Dzp", "VP-1", "BCUTc-1l", "SpMax_Dzp", "SHBint10", "minHBint7",
+          "AATSC2c", "AATS1i", "maxwHBa", "minHBd", "GATS2i", "ETA_Shape_Y", "SHBint7", "VR2_D", "VR1_Dt", "VR3_Dzp", 
+            "XLogP", "GATS5i", "BCUTp-1l", "ETA_BetaP_s", "AATS8i", "C1SP2", "GATS8s", "ATSC2c", "AATS4i", "AATS2i", 
+           "VR1_Dzp", "minHBint9"]]
 
-#X.replace([np.inf, -np.inf], np.nan, inplace=True)
-#X = X.astype("float64")
-#X = pd.DataFrame(X).fillna(0)
+X.replace([np.inf, -np.inf], np.nan, inplace=True)
+X = X.astype("float64")
+X = pd.DataFrame(X).fillna(0)
 
 
 ######################
@@ -91,10 +92,10 @@ desc
 ######################
 
 # Reads in saved model
-#load_model = pickle.load(open('finalized_model_ET_42.pkl', 'rb'))
+load_model = pickle.load(open('finalized_model_ET_42.pkl', 'rb'))
 
 # Apply model to make predictions
-#prediction = load_model.predict(X)
+prediction = load_model.predict(X)
 
-#st.header('Predicted pIC50(nM) value')
-#prediction
+st.header('Predicted pIC50(nM) value')
+prediction

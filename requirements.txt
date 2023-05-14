@@ -1,1 +1,1 @@
-padelpy==0.1.14 scikit-learn==1.2.2
+scikit-learn==1.2.2padelpy==0.1.14
